@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     @IBAction func showPrevious(_ sender: Any) {
         animationSaver -= 1
-        if animationSaver == 0 {
+        if animationSaver >= 0 {
             animationSaver = 7
         }
         numberLabel.text = "\(animationSaver)"
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         animationSaver += 1
         numberLabel.text = "\(animationSaver)"
         if animationSaver > 7 {
-            animationSaver -= 1
+            animationSaver = 0
         }
     }
     
@@ -106,3 +106,8 @@ class ViewController: UIViewController {
     }
     
 }
+
+for i in 1...10 {
+    print ("In \(i)")
+    defer { print ("Deferred \(i)") }
+    print ("Out \(i)") }
